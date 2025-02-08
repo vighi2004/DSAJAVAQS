@@ -14,23 +14,33 @@ public class RotateAndTraget {
         }
         
      }
-     public static void search(int rotateArray[],int target){
-        int start=0;
-        int end=rotateArray.length-1;
-        while(start<=end){
-            int mid=(start+end)/2;
+     public static int search(int rotateArray[],int target){
+        int left=0;
+        int right=rotateArray.length-1;
+        while(left<=right){
+            int mid=(left+right)/2;
             if(rotateArray[mid]==target){
-                System.out.println("element is found at index "+mid+" is "+target);
-                break;
+                return mid;
             }
-            else if(rotateArray[target]>rotateArray[mid]){
-                start=mid+1;
+            if(rotateArray[right]>=rotateArray[mid]){
+                if(rotateArray[right]>=target&&target>rotateArray[mid]){
+                    left=mid+1;
+                }
+                else{
+                    right=mid-1;
+                }
             }
             else{
-                end=mid-1;
+                if (rotateArray[left] <= target && target < rotateArray[mid]) {
+                        right = mid - 1;
+                    } else {
+                        left = mid + 1;  
+                    }
             }
         }
-        System.out.println("-1");
+        return -1;
+
+       
 
      }
     public static void main(String[] args) {
@@ -42,7 +52,7 @@ public class RotateAndTraget {
         rotate(arr,pivot,rotateArray);
         System.out.println("enter target:");
         int target=sc.nextInt();
-        search(rotateArray,target);
+        System.out.println("element found at index "+search(rotateArray,target)+" of given target "+target);
 
 
     }
