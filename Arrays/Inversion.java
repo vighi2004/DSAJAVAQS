@@ -1,5 +1,6 @@
-public class prac{
-    public static int count=1;
+//count inversion with help of Merge sort O(n logn).
+public class Inversion{
+    public static int count=0;
     public static void mergesort(int[] arr,int si ,int end) {
         if(si>=end){
             return;
@@ -19,7 +20,7 @@ public class prac{
         //sorting full array and storing in temp array.
         while(i<=mid&&j<=end){
             if(arr[i]>arr[j]){
-                count+=1;
+                count+=mid-i+1;
                 temp[k]=arr[j];
                 j++;
             }

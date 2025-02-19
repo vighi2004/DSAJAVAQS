@@ -3,7 +3,7 @@ package Strings;
 
 public class stringCompress {
     public static void main(String[] args) {
-        String str="aaabbcccdd";
+        String str="abcddda";
         StringBuilder sb=new StringBuilder("");
         for(int i=0;i<str.length();i++){
            Integer count=1;
@@ -14,9 +14,7 @@ public class stringCompress {
                      
             }
             sb.append(str.charAt(i));
-            if(count>1){
-                sb.append(count.toString());
-            }
+           
         }
         System.out.println(sb.toString());
     }
