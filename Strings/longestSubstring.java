@@ -2,7 +2,7 @@
 package Strings;
 public class longestSubstring {
     public static void main(String args[]){
-        String str ="pwwkew";
+        String str ="pwzkew";
         int maxsum=Integer.MIN_VALUE;
     for(int i = 0; i < str.length(); i++) {
         for(int j = i + 1; j <= str.length(); j++) {
