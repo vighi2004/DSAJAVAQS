@@ -102,7 +102,78 @@ public class basic {
         }
         return -1;
     }
+    //reverse LL
+    public void revrseLL(){
+        node prev=null;
+        node curr=tail=head;
+        node next;
+        while(curr!=null){
+          next=curr.next;
+          curr.next=prev;//reversing the link.
+          prev=curr;
+          curr=next;
+        }
+        head=prev;
+    }
+    //remove nth node from last.
+    public void removeNthfromEnd(int n){
+        node prev=head;
+        int i=0;
+        while(prev!=null){
+            if(i==(size-1)-n){
+                prev.next=prev.next.next;//2
+                return;
+            }
+            prev=prev.next;
+            i++;
+        }
 
+    }
+    //find middle
+    public node middleInd(node head) {
+        node slow = head;
+        node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;  // Move 2 step
+        }
+        return slow; 
+    }
+    
+    // Check if linked list is a palindrome
+    public boolean checkpalin() {
+        if (head == null || head.next == null) {
+            return true;
+        }
+    
+        // Find middle node
+        node middleI = middleInd(head);
+    
+        // Reverse the second half
+        node prev = null;
+        node curr = middleI;
+        node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;  // Reverse link
+            prev = curr;
+            curr = next;
+        }
+    
+        node right = prev;  // Right half 
+        node left = head;   // Left half
+    
+        while (right != null) {
+            if (left.data != right.data) {  
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+    
+        return true; 
+    }
+    
     public void Print(){
         if(head==null){
             System.out.println("LL is empty!");
@@ -118,12 +189,16 @@ public class basic {
     basic LL=new basic();
     LL.addFirst(1);  
     LL.addLast(2);
-    LL.addLast(3);
-    LL.addLast(4); 
-    LL.addAtIndex(2,5);
-    LL.Print();
-    System.out.println("founding key...");
-    System.out.println("found at position :"+LL.foundkeyPos(32));
+    LL.addLast(100);
+    LL.addLast(1);
+    LL.Print(); 
+    if(LL.checkpalin()){
+       System.out.println("It is palindrome");
+    }
+    else{
+        System.out.println("NOt a palindrome");
+    }
+    
         
     }
     

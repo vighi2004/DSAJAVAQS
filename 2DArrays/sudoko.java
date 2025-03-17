@@ -1,3 +1,4 @@
+//solving sudoku using backtracking.
 public class sudoko {
     public static boolean isSafe(int[][] sudoko,int row,int col,int k) {
       //horizantal
