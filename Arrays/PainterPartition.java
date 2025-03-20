@@ -1,21 +1,18 @@
-//finding minimum pages allocated to each studnet using binary search in O(nlogn).
-class MinimumPages{
-    public static boolean isvalid(int arr[],int student,int n,int mid){
-        int pages=0;
-        int st=1;
+//finding minimum time require to paint in time O(nlogn).
+public class PainterPartition {
+    public static boolean isvalid(int arr[],int painter,int n,int mid){
+        int time=0;
+        int pt=1;
         for(int i=0;i<n;i++){
-            if(arr[i]>mid){
-                return false;
-            }
-            else if(pages+arr[i]<=mid){
-                pages=pages+arr[i];
+            if(time+arr[i]<=mid){
+                time=time+arr[i];
             }
             else{
-                 st++;
-                 pages=arr[i];
+                 pt++;
+                 time=arr[i];
             }
         }
-        if(st==student){
+        if(pt<=painter){
             return true;
         }
         else{
@@ -23,25 +20,29 @@ class MinimumPages{
         }
     }
     public static void main(String[] args) {
-        int arr[]={12,37,64,90};
+        int arr[]={5, 10, 30, 20, 15};
         int n=arr.length;
-        int student=2;
+        int painter=3;
         int start=0;
-        int minPage=0;
+        for(int i=0;i<arr.length;i++){
+            start=Math.max(start,arr[i]);
+        }
+        int time=0;
         int end=0;
         for(int i=0;i<arr.length;i++){
             end=end+arr[i];
         }
         while(start<=end){
             int mid=(start+end)/2;
-            if(isvalid(arr,student,n,mid)){
-               minPage=mid;
+            if(isvalid(arr,painter,n,mid)){
+               time=mid;
                end=mid-1;//checking if there getting minimum in left array as array is sorted.
             }
             else{
                 start=mid+1;//right side check if that mid is not valid beacuse in left smaller are there.
             }
         }
-        System.out.println("minimum Pages are: "+minPage);
+        System.out.println("Minimum Time required to paint: "+time);
     }
 }
+
