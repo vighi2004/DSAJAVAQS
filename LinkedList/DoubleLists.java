@@ -1,7 +1,7 @@
 //functions of double linkedlist.
 package LinkedList;
 
-public class DoubleList {
+public class DoubleLists{
     public class node{
         int data;
         node next;
