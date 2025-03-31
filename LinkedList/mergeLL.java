@@ -1,4 +1,4 @@
-//merging sorted LL.
+//merging sorted LL where unique elemts are there;
 package LinkedList;
 public class mergeLL {
     public static class node{

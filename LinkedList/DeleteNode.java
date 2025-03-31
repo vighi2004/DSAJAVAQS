@@ -13,14 +13,6 @@ public class DeleteNode {
         }
     }
     public static node head;
-    public static int size=0;
-    public int getsize(node head){
-        while(head!=null){
-            size++;
-            head=head.next;
-        }
-        return size;
-    }
     //n nodes deleteing logic.
     public void deletenode(node head,int M,int N){
         node prev=head;
@@ -67,7 +59,6 @@ public class DeleteNode {
         LL.print(head);
         int M=2;
         int N=2;
-        System.out.println(LL.getsize(head));
         LL.deletenode(head,M,N);
         LL.print(head);
 
