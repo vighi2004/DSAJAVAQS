@@ -1,4 +1,4 @@
-//working on it....
+//Queue using two Stack.push O(1) and pop O(N)
 package Queues;
 
 import java.util.Stack;
@@ -11,12 +11,13 @@ public class Using2stack {
       while(s1.peek()!=s1.firstElement()){
            s2.push(s1.pop());
       }
-    }
-    public static void print(Stack<Integer> s2){
-           while(!s2.isEmpty()){
-                System.out.print(" "+s2.peek());
-                s2.pop();
-           }
+      while(!s1.isEmpty()){
+        s1.pop();
+      }
+      while(!s2.isEmpty()){
+        s1.push(s2.pop());
+      }
+
     }   
     public static void main(String[] args) {
     Stack <Integer> s1=new Stack<>();
@@ -27,6 +28,9 @@ public class Using2stack {
     s1.add(4);
     System.out.println(s1);
     popy(s1,s2);
-    print(s2);
+    System.out.println(s1);
+    popy(s1,s2);
+    s1.push(100);
+    System.out.println(s1);
     }
 }
