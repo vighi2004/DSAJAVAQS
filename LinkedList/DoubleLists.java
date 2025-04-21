@@ -84,7 +84,7 @@ public class DoubleLists{
         System.out.println("null");
     }
     public static void main(String[] args) {
-        DoubleList dll=new DoubleList();
+        DoubleLists dll=new DoubleLists();
         dll.addFirst(1);
         dll.addFirst(2);
         dll.addFirst(3);

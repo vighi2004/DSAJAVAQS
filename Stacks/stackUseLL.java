@@ -1,5 +1,4 @@
-//implementation of stack using linkedlist.
-package Stacks;
+//implementation of stack using linkedlist
 public class stackUseLL {
     public static  class node{
         int data;
