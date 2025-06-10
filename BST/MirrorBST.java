@@ -40,6 +40,13 @@ public class MirrorBST {
         root.right=temp;
         MirrorBST(root.left);
         MirrorBST(root.right);
+
+        // approach 2 is 
+        // node left=MirrorBST(root.left);
+        // node right=MirrorBST(root.right);
+        // root.left=right;
+        // root.right=left;
+        // return root;
     }
     public static void main(String[] args) {
         int values[]={8,5,3,6,10,11};
