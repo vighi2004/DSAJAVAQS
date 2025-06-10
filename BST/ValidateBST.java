@@ -23,7 +23,7 @@ public class ValidateBST {
             if (root.data <= min || root.data >= max) {
                 return false;
                }
-            return validCheck(root.left,min,max)&&validCheck(root.right,min,max);
+            return validCheck(root.left,min,root.data)&&validCheck(root.right,root.data,max);
            }
        }
        public static void main(String[] args) {
