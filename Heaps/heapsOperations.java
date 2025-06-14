@@ -19,6 +19,43 @@ public class heapsOperations {
                }
                System.out.println(arr);
         }
+        public int peek(){
+             if(arr.size()>0){
+             return arr.get(0);
+             }
+             return 0;
+        }
+        private void heapify(int i){
+            int left=2*i+1;
+            int right=2*i+2;
+            int minIdx=i;
+            if(left<arr.size()&&arr.get(minIdx)>arr.get(left)){
+                minIdx=left;
+            }
+            if(right<arr.size()&&arr.get(minIdx)>arr.get(right)){
+                minIdx=right;
+            }
+            if(minIdx!=i){
+                //swap
+                int temp=arr.get(i);
+                arr.set(i,arr.get(minIdx));
+                arr.set(minIdx,temp);
+                heapify(minIdx);
+            }
+            
+        }
+        //In minHeap we delete root beacuse it is minimun.
+        public int delete(){
+            int temp=arr.get(0);
+            arr.set(0,arr.get(arr.size()-1));
+            arr.set(arr.size()-1,temp);
+            if(arr.size()>0){
+                arr.remove(arr.size()-1);
+                heapify(0);
+                return temp;
+            }
+            return 0;
+        }
      }
      public static void main(String[] args) {
         heap hp=new heap();
@@ -28,7 +65,8 @@ public class heapsOperations {
         hp.insert(5);
         hp.insert(10);
         hp.insert(1);
-        System.out.println();
+        System.out.println(hp.peek());
+        System.out.println("Element deleted root is: "+hp.delete());
         
      }
 }
