@@ -36,7 +36,7 @@ public class heapsOperations {
                 minIdx=right;
             }
             if(minIdx!=i){
-                //swap
+                //swap 
                 int temp=arr.get(i);
                 arr.set(i,arr.get(minIdx));
                 arr.set(minIdx,temp);
