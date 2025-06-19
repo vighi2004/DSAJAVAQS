@@ -1,4 +1,4 @@
-//fnding weather given string can be break.
+//fnding weather given string can be break.Time=O(L)
 package Tries;
 public class WordBreakProblem {
     static class node{
