@@ -1,12 +1,10 @@
-//all operation on tries.
+//fnding weather given string can be break.
 package Tries;
-public class operations {
+public class WordBreakProblem {
     static class node{
-        node children[];//26
+        node children[]=new node[26];
         boolean endOfWord;
-
         public node(){
-            children=new node[26];
             for(int i=0;i<25;i++){
                 children[i]=null;
             }
@@ -14,20 +12,20 @@ public class operations {
         }
     }
     public static node root=new node();
-    public static void insert(String word){ //O(L)
+    public static void insert(String word){
         node curr=root;
         for(int i=0;i<word.length();i++){
             int idx=word.charAt(i)-'a';
             if(curr.children[idx]==null){
-               curr.children[idx]=new node();
+                curr.children[idx]=new node();
             }
             if(i==word.length()-1){
-              curr.children[idx].endOfWord=true;
+                curr.children[idx].endOfWord=true;
             }
             curr=curr.children[idx];
         }
     }
-    public static boolean search(String word){
+     public static boolean search(String word){
         node curr=root;
         for(int i=0;i<word.length();i++){
             int idx=word.charAt(i)-'a';
@@ -40,15 +38,27 @@ public class operations {
             curr=curr.children[idx];
         }
         return true;
+    }
+    public static boolean wordBreak(String word){
+        if(word.length()==0){
+            return true;
+        }
+        for(int i=1;i<=word.length();i++){//as in substring last index is exclusive.
+            if(search(word.substring(0, i))&& wordBreak(word.substring(i))){
+                return true;
+            }
+        }
+        return false;
 
     }
     public static void main(String[] args) {
-        String words[]={"the","a","their","there","any"};
+        String words[]={"i","like","sam","samsung","mobile","ice"};
+        String str="ilikesamsung";
         for(int i=0;i<words.length;i++){
             insert(words[i]);
         }
-        System.out.println(search("therez"));
+        System.out.println(wordBreak(str));
 
-    } 
-
+    }
+    
 }
