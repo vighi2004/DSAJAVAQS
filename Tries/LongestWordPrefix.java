@@ -1,6 +1,6 @@
-//all operation on tries.
+//finding word with longest prefix
 package Tries;
-public class operations {
+public class LongestWordPrefix {
     static class node{
         node children[];//26
         boolean endOfWord;
@@ -13,7 +13,9 @@ public class operations {
             endOfWord=false;
         }
     }
-    public static node root=new node();
+     public static node root=new node();
+     public static String str="";
+     public static int maxlength=0;
     public static void insert(String word){ //O(L)
         node curr=root;
         for(int i=0;i<word.length();i++){
@@ -41,13 +43,31 @@ public class operations {
         }
         return true;
     }
+    public static void longword(node root,StringBuilder temp) {
+        if(root==null){
+            return;
+        }
+    for (int i = 0; i <26; i++) {
+        if (root.children[i]!=null&&root.children[i].endOfWord==true) {
+            char ch=(char)(i+'a');
+            temp.append(ch);
+            if(temp.length()>str.length()){
+                str=temp.toString();
+            }
+            longword(root.children[i], temp);
+            temp.deleteCharAt(temp.length()-1);//backtrack;
+        }
+    }
+}
+
     public static void main(String[] args) {
-        String words[]={"the","a","their","there","any"};
+        String words[]={"a","banana","ap","appl","app","apply","apple"};
         for(int i=0;i<words.length;i++){
             insert(words[i]);
         }
-        System.out.println(search("therez"));
-
-    } 
-
+         longword(root, new StringBuilder(""));
+        System.out.println("Longest word prefix is: "+str);
+        
+    }
+    
 }
