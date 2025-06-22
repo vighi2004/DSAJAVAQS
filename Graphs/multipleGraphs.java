@@ -36,6 +36,15 @@ public class multipleGraphs {
             }
         }
     }
+    public static void dfs(ArrayList<edge>[] graph){
+         boolean visitArr[]=new boolean[graph.length];
+         for(int i=0;i<graph.length;i++){
+            if(!visitArr[i]){
+                dfsUtil(graph,i,visitArr);
+            }
+         }
+    }
+    //DFS helper function
     public static void dfsUtil(ArrayList<edge>[] graph,int curr,boolean visitArr[]){//O(V+E)
         System.out.print(curr+" ");
         visitArr[curr]=true;
