@@ -1,7 +1,7 @@
-//performing BFS on graph
+//performing DFS.
 package Graphs;
-import java.util.*;
-public class BFS {
+import java.util.ArrayList;
+public class DFS {
     static class edge{
         int src;
         int dest;
@@ -12,20 +12,16 @@ public class BFS {
             this.wt=w;
         }
     }
-    public static void bfs(ArrayList<edge>[] graph,boolean visitArr[]){//O(V+E)
-        Queue <Integer> Q=new LinkedList<>();
-        Q.add(graph[0].get(0).src);
-        while(!Q.isEmpty()){
-            int curr=Q.remove();
-            if(visitArr[curr]==false){
-                System.out.print(" "+curr);
-                visitArr[curr]=true;
-                for(int i=0;i<graph[curr].size();i++){
-                   edge e=graph[curr].get(i);
-                   Q.add(e.dest);
-                }
+    public static void dfs(ArrayList<edge>[] graph,int curr,boolean visitArr[]){//O(V+E)
+        System.out.print(curr+" ");
+        visitArr[curr]=true;
+        for(int i=0;i<graph[curr].size();i++){
+            edge e=graph[curr].get(i);
+            if(!visitArr[e.dest]){
+                dfs(graph, e.dest, visitArr);
             }
         }
+        
     }
     public static void main(String[] args) {
         int V=7;
@@ -67,8 +63,11 @@ public class BFS {
         //6 vertex
         graph[6].add(new edge(6, 5, 1));
 
-        bfs(graph, visitArr);
+        dfs(graph,0, visitArr);
     
     }
 
 }
+
+    
+
