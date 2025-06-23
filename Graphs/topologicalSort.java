@@ -1,4 +1,4 @@
-//topological sort of DAG(directed acyclic graph).
+//topological sort of DAG(directed acyclic graph).Using DFS
 package Graphs;
 import java.util.*;
 public class topologicalSort {
