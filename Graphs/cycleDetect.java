@@ -12,27 +12,34 @@ public class cycleDetect {
     }
     public static boolean detectCycle(ArrayList<edge>[] graph){
            boolean visitArr[]=new boolean[5];
+           int currdepth[]=new int[5];
+           for(int i=0;i<currdepth.length;i++){
+              currdepth[i]=-1;
+           }
            for(int i=0;i<graph.length;i++){
               if(!visitArr[i]){
-                  if(detectCycleUtil(graph,i,-1,visitArr)){
+                  if(detectCycleUtil(graph,i,-1,visitArr,currdepth,0)){
                       return true;//if any one component of graph exist cycle.
                   }
               }
            }
            return false;
     }
-    public static boolean detectCycleUtil(ArrayList<edge>[] graph,int curr,int par,boolean[] visitArr){//O(V+E).
+    public static boolean detectCycleUtil(ArrayList<edge>[] graph,int curr,int par,boolean[] visitArr,int currdepth[],int depth){//O(V+E).
            visitArr[curr]=true;
+           currdepth[curr]=depth;
            for(int i=0;i<graph[curr].size();i++){
              edge e=graph[curr].get(i);
              //case 3
              if(!visitArr[e.dest]){
-                if(detectCycleUtil(graph, e.dest, curr, visitArr)){
+                if(detectCycleUtil(graph, e.dest, curr, visitArr,currdepth,depth+1)){
                  return true;
                 }
               }
              //case 1
              else if(visitArr[e.dest]&&e.dest!=par){
+                int dp=currdepth[curr]-currdepth[e.dest]+1;
+                System.out.println("cycle length: "+dp);              
                 return true;
              }
              //case 2- continue do nothing.  
