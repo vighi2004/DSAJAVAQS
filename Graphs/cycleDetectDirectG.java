@@ -1,4 +1,4 @@
-//detecting cycle on directed graph using stack.
+//detecting cycle on directed graph using stack.Time=O(V+E)
 package Graphs;
 import java.util.*;
 public class cycleDetectDirectG {
