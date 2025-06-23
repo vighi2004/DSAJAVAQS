@@ -1,4 +1,4 @@
-//cycle detect using DFS.
+//cycle detect using DFS on Undirected Graph.
 package Graphs;
 import java.util.*;
 public class cycleDetect {
