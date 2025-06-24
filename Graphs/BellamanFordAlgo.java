@@ -36,7 +36,7 @@ public class BellamanFordAlgo {
         }
         for(int i=0;i<dist.length;i++){
             System.out.println("0 -> "+i +"= "+dist[i]);
-        }
+        } 
 
         }
     public static void main(String[] args) {
