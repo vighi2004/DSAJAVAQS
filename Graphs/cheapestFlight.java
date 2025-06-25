@@ -34,7 +34,6 @@ public class cheapestFlight {
                 dist[i]=Integer.MAX_VALUE;
             }
         }
-        boolean visitArr[]=new boolean[graph.length];
         Queue<info> Q=new LinkedList<>();
         Q.add(new info(src, 0,0));
         //bfs
@@ -43,8 +42,6 @@ public class cheapestFlight {
          if(curr.stop>k){
             break;
          }
-         if(!visitArr[curr.n]){
-            visitArr[curr.n]=true;
             for(int i=0;i<graph[curr.n].size();i++){
                  edge e=graph[curr.n].get(i);
                  int u=e.src;
@@ -56,8 +53,6 @@ public class cheapestFlight {
                  }
             }
          }
-
-        }
         if(dist[dest]==Integer.MAX_VALUE){
             System.out.println("not found");
             return;

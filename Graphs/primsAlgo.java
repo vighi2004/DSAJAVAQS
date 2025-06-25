@@ -38,7 +38,6 @@ public class primsAlgo {
                 visit[curr.n]=true;
                 for(int i=0;i<graph[curr.n].size();i++){
                     edge e=graph[curr.n].get(i);
-                    System.out.println(curr.n+"->"+e.dest+"="+e.wt);
                     PQ.add(new pair(e.dest, e.wt));
                 }
 
