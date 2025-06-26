@@ -1,4 +1,5 @@
 //finding max value with k size sub array consecutive and storing in queue.
+package Queues;
 import java.util.*;
 public class MaxVal {
     public static void solve(int arr[],int k,int n,Queue<Integer> Q){

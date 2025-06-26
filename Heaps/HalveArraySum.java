@@ -1,4 +1,4 @@
-//Minimum operation to halve Array sum;
+//Minimum operation to halve Array sum;Time-O(K.logn)
 package Heaps;
 import java.util.*;
 public class HalveArraySum {
