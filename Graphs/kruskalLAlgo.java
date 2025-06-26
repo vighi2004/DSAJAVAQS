@@ -47,10 +47,10 @@ public class kruskalLAlgo {
     }
     public static int  kruskalMST(ArrayList<edge> edges,int V){
          init();
-         Collections.sort(edges);
+         Collections.sort(edges);//O(ELOGE)
          int count=0;
          int mincost=0;
-         for(int i=0;count<V-1;i++){
+         for(int i=0;count<V-1;i++){//O(V)
             edge e=edges.get(i);
             int parA=find(e.src);
             int parB=find(e.dest);
