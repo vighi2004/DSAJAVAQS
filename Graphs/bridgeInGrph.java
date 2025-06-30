@@ -73,15 +73,15 @@ public class bridgeInGrph {
         //3 vertex
         graph[3].add(new edge(3, 0));
         graph[3].add(new edge(3, 4));
-        graph[3].add(new edge(3, 5));
+        //graph[3].add(new edge(3, 5));
 
         //4 vertex
         graph[4].add(new edge(4, 3));
-        graph[4].add(new edge(4, 5));
+        //graph[4].add(new edge(4, 5));
 
-        //5 vertex
-        graph[5].add(new edge(5, 3));
-        graph[5].add(new edge(5, 4));
+        // //5 vertex
+        // graph[5].add(new edge(5, 3));
+        // graph[5].add(new edge(5, 4));
         dfs(graph);
 
     }
