@@ -22,13 +22,16 @@ public class TargetSumSubset {
                 if(dp[i-1][j]){
                     dp[i][j]=true;
                 }
+                System.out.print(" "+dp[i][j]);
                }
                else{
                 if(dp[i-1][j]){
                     dp[i][j]=true;
                 }
+                System.out.print(" "+dp[i][j]);
                }
             }
+            System.out.println();
         }
         if(dp[num.length][target]){
             System.out.println("yes it exist");
