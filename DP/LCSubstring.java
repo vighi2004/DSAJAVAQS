@@ -6,9 +6,9 @@ public class LCSubstring {
         if(n==0||m==0){
             return;
         }
-        max=Math.max(max, count);
         if(str1.charAt(n-1)==str2.charAt(m-1)){
           solve(str1, str2, n-1, m-1,count+1);
+          max=Math.max(max, count);
         }
         else{
              solve(str1, str2, n, m-1,0);

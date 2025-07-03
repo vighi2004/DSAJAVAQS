@@ -32,9 +32,8 @@ public class LCS {
             return dp[n][m]=Math.max(ans1,ans2);
         }
     }
-    //using DP memiozation approach O(N*M).
+    //using DP tabulation approach O(N*M).
      public static void LCST(String str1,String str2,int n,int m,int dp1[][]){
-        StringBuilder lcs=new StringBuilder("");
         for(int i=1;i<str1.length()+1;i++){
             for(int j=1;j<str2.length()+1;j++){ 
                if(str1.charAt(i-1)==str2.charAt(j-1)){
