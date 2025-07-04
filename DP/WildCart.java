@@ -13,7 +13,10 @@ public class WildCart {
                 } 
                else{
                   dp1[i][j]=false;
-        }}
+                }
+                System.out.print(" "+dp1[i][j]);
+    }
+    System.out.println();
     }
     System.out.println("LCS(DPT): "+dp1[text.length()][pattern.length()]);
     }
