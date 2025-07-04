@@ -21,7 +21,7 @@ public class CoinChange {
                }
                else{
                 dp[i][j]=dp[i-1][j];
-                System.out.print(" "+dp[i][j]);
+                System.out.print(" "+dp[i][j]); 
             
                }
             }
