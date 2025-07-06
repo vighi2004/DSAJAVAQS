@@ -1,7 +1,7 @@
 //finding minimum partition difference using 0-1knapsack
 package DP;
 public class MinimumPartition {
-    //using tabulation.
+    //using tabulation.O(n*totalsum);
     public static void MP(int dp[][],int capacity,int arr[],int totalSum){
         for(int i=1;i<arr.length+1;i++){
             for(int j=1;j<capacity+1;j++){
