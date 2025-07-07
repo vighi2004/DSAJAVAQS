@@ -10,7 +10,9 @@ public class minJumps {
                 ans=Math.min(ans,dp[j]+1);
                }
             }
-            dp[i]=ans;
+            if(ans!=Integer.MAX_VALUE){
+               dp[i]=ans;
+            }
         }
         System.out.println("minimum jumps : "+dp[0]);
     }
