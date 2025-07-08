@@ -7,7 +7,7 @@ public class ratMaze {
             return;
         }
          if (sr == fills.length - 1 && sc == fills[0].length - 1) {
-            System.out.println("Path: " + str);
+           System.out.println("Path: " + str);
             return;
         }
           visit[sr][sc] = true;
@@ -33,7 +33,6 @@ public class ratMaze {
         int sc=0;//starting col;
         String str="";
         start(fills, sr, sc, str);
-        System.out.println(str);
 
 }    
 }
