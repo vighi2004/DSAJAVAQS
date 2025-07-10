@@ -45,8 +45,11 @@ public class MaxMinST {
         if(idx<si||idx>sj){
             return;
         }
-        tree[i]=Math.max(tree[i],value);
+        if(si==sj){
+            tree[i]=value;
+        }
         if(si!=sj){
+         tree[i]=Math.max(tree[i],value);    
         int mid=(si+sj)/2;
         updateUtil(idx,2*i+1,si, mid,value);
         updateUtil(idx, 2*i+2, mid+1, sj, value);
