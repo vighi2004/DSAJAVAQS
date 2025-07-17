@@ -22,9 +22,9 @@ public class FinishJobs {
         return false;
     }
     public static void main(String[] args) {
-    int jobs[]={4,5,10};
+    int jobs[]={3,2,3};
     int t=5;
-    int k=2;
+    int k=3;
     int sum=0;
     for(int i=0;i<jobs.length;i++){
         sum+=jobs[i];
