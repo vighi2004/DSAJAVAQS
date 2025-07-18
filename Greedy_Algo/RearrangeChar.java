@@ -1,36 +1,32 @@
-//rearrange characters in a String such that no two adjacent characters are same
 package Greedy_Algo;
 import java.util.*;
-public class RearrangeChar {
-    public static void check(String str,boolean done[],String res){
-        res+=str.charAt(0);
-        done[0]=true;
-        while(true){
-           boolean flag=false;
-          for(int i=1;i<str.length();i++){
-            if(res.charAt(res.length()-1)==str.charAt(i)&&done[i]==false){
-                done[i]=true;
-                res+=str.charAt(i);
-                flag=true;
-                break;
-            }
-          }
-          if(res.length()==str.length()){
-            System.out.println(res);
-            return;
-          }
-          if(flag==false){
-             System.out.println("empty string");
-             return;
-          }
+class RearrangeChar {
+    public String reorganizeString(String s) {
+        int[] freq = new int[26];
+        for (char c : s.toCharArray()) freq[c - 'a']++;
 
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[1] - a[1]);
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] > 0) {
+                if (freq[i] > (s.length() + 1) / 2) return "";
+                pq.offer(new int[]{i, freq[i]});
+            }
         }
+
+        StringBuilder sb = new StringBuilder();
+        while (pq.size() >= 2) {
+            int[] first = pq.poll();
+            int[] second = pq.poll();
+            sb.append((char) (first[0] + 'a'));
+            sb.append((char) (second[0] + 'a'));
+            if (--first[1] > 0) pq.offer(first);
+            if (--second[1] > 0) pq.offer(second);
+        }
+
+        if (!pq.isEmpty()) {
+            sb.append((char) (pq.poll()[0] + 'a'));
+        }
+
+        return sb.toString();
     }
-    public static void main(String[] args) {
-        String str="aaabc";
-        boolean done[]=new boolean[str.length()];
-        String res="";
-        check(str,done,res);
-    }
-    
 }
