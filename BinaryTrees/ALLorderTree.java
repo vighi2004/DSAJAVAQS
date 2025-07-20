@@ -51,20 +51,6 @@ public class ALLorderTree {
         postorder(root.right);
         System.out.print(root.data);
     }
-    //levelorder O(n)
-    public static void levelorder(node root){
-        if(root==null){
-            return;
-        }
-        levelorder(root.left);
-        if(root.left!=null){
-            System.out.print(root.data);
-        }
-        levelorder(root.right);
-        if(root.right!=null){
-            System.out.print(root.data);
-        }
-    }
 }
     public static void main(String[] args) {
         int nodes[]={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -79,6 +65,5 @@ public class ALLorderTree {
         System.out.println();
         System.out.println("POST-ORDER");
         tree.postorder(root);
-       
     }
 }
