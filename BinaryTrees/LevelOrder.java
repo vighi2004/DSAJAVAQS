@@ -26,29 +26,36 @@ public class LevelOrder {
             return newNode;
     }
     public static void levelorder(node root){
+        ArrayList <List<Integer>> arr=new ArrayList<>();
         Queue <node> Q=new LinkedList<>();
         Q.add(root);
         Q.add(null);
+        arr.add(new ArrayList<>());
+        int level=0;
         while(!Q.isEmpty()){
                node curr=Q.remove();
                if(curr==null){
+                  level++;
                   System.out.println();
                   if(!Q.isEmpty()) {
-                   Q.add(null);
+                    arr.add(new ArrayList<>());
+                    Q.add(null);
                  }
                }
                else{
                 System.out.print(curr.data);
+                arr.get(level).add(curr.data);
                if(curr.left!=null){
                  Q.add(curr.left);
                }
                if(curr.right!=null){
                   Q.add(curr.right);
-               }
-               
-               
+               }        
             }
-               
+        }
+        //reverse traversal
+        for(int i=arr.size()-1;i>=0;i--){
+              System.out.print(""+arr.get(i));
         }
 
     }
