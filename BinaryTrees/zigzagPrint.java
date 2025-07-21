@@ -1,6 +1,7 @@
 //printing zigzag view
+package BinaryTrees;
 import java.util.*;
-public class Main {
+public class zigzagPrint {
     static class node {
         int data;
         node left;
