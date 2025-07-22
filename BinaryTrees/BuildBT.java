@@ -32,8 +32,7 @@ public class BuildBT {
         int inorderIdx=Inhm.get(root);
         newnode.left=build(preorder, left, inorderIdx-1);
         newnode.right=build(preorder, inorderIdx+1, right);
-        return newnode;
-        
+        return newnode; 
     }
     public static void main(String[] args) {
         int preorder[]={3,9,20,15,7};
