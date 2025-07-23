@@ -56,9 +56,10 @@ public class DiagonalTraverse {
         String nodes[]={"8","3","10","1","6","N","14","N","N","4","7","13","N"};
         node root=buildTree(nodes);
         digonalT(root, level);
-         for (Map.Entry<Integer, List<Integer>> entry : hm.entrySet()) {
-            System.out.println("Diagonal " + entry.getKey() + ": " + entry.getValue()); 
-        } 
+        for (Integer key : hm.keySet()) {
+           List<Integer> value = hm.get(key);
+          System.out.println("Key: " + key + ", Value: " + value);
+}
         
     }
 }
