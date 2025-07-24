@@ -1,62 +1,70 @@
-//number of swap required to convert BT to BST.
+//no.of swaps required to convert BT to BST.
 package BinaryTrees;
+import java.util.Arrays;
 public class BtTOBst {
-    static class node{
-        int data;
-        node left;
-        node right;
+    // Pair class to hold value and its original index
+    static class Pair implements Comparable<Pair> {
+        int value;
+        int index;
 
-        public node(int data){
-            this.data=data;
-            this.left=null;
-            this.right=null;
+        public Pair(int value, int index) {
+            this.value = value;
+            this.index = index;
+        }
+
+        @Override
+        public int compareTo(Pair other) {
+            return this.value - other.value;
         }
     }
-    public static int idx=-1;
-    public static node buildT(int arr[]) {
-        idx++;
-        if(arr[idx]==-1){
-            return null;
+
+    // Function to calculate minimum number of swaps to sort the array
+    public static int checkSwap(int arr[]) {
+        int n = arr.length;
+        Pair[] pairs = new Pair[n];
+
+        // Step 1: Store value with original index
+        for (int i = 0; i < n; i++) {
+            pairs[i] = new Pair(arr[i], i);
         }
-        node newnode=new node(arr[idx]);
-        newnode.left=buildT(arr);
-        newnode.right=buildT(arr);
-        return newnode;
-    }
-    public static int checkSwap(int arr[],int arr1[]){
-        int swap=0;
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]==arr1[i]){
+
+        // Step 2: Sort the array by value
+        Arrays.sort(pairs);
+
+        // Step 3: Create visited array
+        boolean[] visited = new boolean[n];
+        int swaps = 0;
+
+        // Step 4: Traverse all cycles
+        for (int i = 0; i < n; i++) {
+            // If already visited or already in correct position
+            if (visited[i] || pairs[i].index == i) {
                 continue;
             }
-            else{
-                swap++;
-                for(int j=i+1;j<arr1.length;j++){
-                    if(arr[j]==arr[i]){
-                          int temp=arr[i];
-                          arr1[j]=arr1[i];
-                          arr1[i]=temp;
-                    }
-                }
+
+            // Compute size of the cycle
+            int cycleSize = 0;
+            int j = i;
+
+            while (!visited[j]) {
+                visited[j] = true;
+                j = pairs[j].index; // move to next index in cycle
+                cycleSize++;
+            }
+
+            // If cycle size > 1, then (cycleSize - 1) swaps are needed
+            if (cycleSize > 1) {
+                swaps += (cycleSize - 1);
             }
         }
-        return swap;
+
+        return swaps;
     }
-    public static int index=0;
-    public static void inorder(node root,int arr1[]){
-        if(root==null){
-            return ;
-        }
-        inorder(root.left,arr1);
-        arr1[index++]=root.data;
-        inorder(root.right,arr1);
-    }
+
     public static void main(String[] args) {
-        int arr[] = {5, 6, 7, 8, 9, 10, 11};
-        node root=buildT(arr);
-        int arr1[]=new int[arr.length];
-        inorder(root,arr1);
-        System.out.println("no. of swaps required:-"+checkSwap(arr,arr1));
+        // Example in-order traversal of binary tree (not BST)
+        int arr[] = {5, 6, 7, 8, 9, 10, 11}; // Already sorted => 0 swaps
+
+        System.out.println("Number of swaps required: " + checkSwap(arr));
     }
-    
 }
