@@ -23,8 +23,6 @@ public class KlargestEle {
     Collections.sort(res);
     for(int i=0;i<res.size();i++){
         System.out.print(" "+res.get(i));
-    }
-    
-    
+    } 
 }
 }
