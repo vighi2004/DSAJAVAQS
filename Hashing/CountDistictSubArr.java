@@ -3,28 +3,21 @@ package Hashing;
 import java.util.*;
 public class CountDistictSubArr {
     public static void main(String[] args) {
-   	HashSet <String>  set=new HashSet<>();
+   	HashSet <List<Integer>>  set=new HashSet<>();
 		int arr[]={1,2,10};
+	        int size=0;
 		for(int i=0;i<arr.length;i++){
 		    int j=i;
-		    StringBuilder res=new StringBuilder(" ");
+		    List<Integer> subarray = new ArrayList<>();
 		   while(j<arr.length){
-		       String str = String.valueOf(arr[j]);
-		       str+=',';
-		       res=res.append(str);
-		       set.add(res.toString());
-		       j++;
-		   }
-		   
+		        subarray.add(arr[j]);
+                        set.add(new ArrayList<>(subarray));
+			j++;
+		   }   
 		}
-		int count=0;
-		for(String k:set){
-		   for(int i=0;i<k.length();i++){
-		       if(k.charAt(i)==','){
-		           count+=1;
-		       }
-		   }
-		}
-		System.out.println(count);
+	         for (List<Integer> sub : set) {
+                 totalSize += sub.size();
+                    }
+                System.out.println(totalSize);
 }
 }
