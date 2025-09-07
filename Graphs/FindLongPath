@@ -21,7 +21,7 @@ public class FindLongPath{
         }
         int Indegree[]=new int[graph.length];
         topologicalSort(graph,Indegree);
-        Queue<Intger> q=new LinkedList<>();
+        Queue<Integer> q=new LinkedList<>();
         for(int i=0;i<Indegree.length;i++){
             if(Indegree[i]==0){
                 q.add(i);
