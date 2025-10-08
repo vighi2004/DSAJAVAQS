@@ -1,5 +1,5 @@
+//count the balanced binary tree at most height 1 .
 package DP;
-import java.util.*;
 public class BBTCounter {
     public static int CountBBT(int h){
         if(h==0 || h==1){
